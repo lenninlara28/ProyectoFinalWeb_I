@@ -13,7 +13,7 @@ class Ingrediente extends Model
     public $timestamps = false;
 
     protected $fillabel= [
-
+    	'id',
     	'nombre',
     	'proveedor',
     ];
