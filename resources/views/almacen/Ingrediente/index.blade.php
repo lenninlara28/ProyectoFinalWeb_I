@@ -27,13 +27,14 @@
 						<td>{{ $ingre->proveedor}}</td>
 						<td>
 							<a href="{{URL::action('IngredienteController@edit', $ingre->idIngrediente)}}">
-								<button class="btn btn-info">Editar</button>
+								<button class="btn btn-info">Editar</button>							
 							</a>
 							<a href="" data-target="#modal-delete-{{$ingre->idIngrediente}}" data-toggle="modal">
 							<button class="btn btn-danger">Eliminar</button>
 							</a>
 						</td>
 					</tr>
+
 					@include('almacen.Ingrediente.modal')
 					@endforeach
 				</table>

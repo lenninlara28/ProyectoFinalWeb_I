@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('almacen/Ingrediente','IngredienteController');
+Route::resource('almacen/Plato','PlatoController');

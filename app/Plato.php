@@ -13,7 +13,6 @@ class Plato extends Model
     public $timestamps = false;
 
     protected $fillabel= [
-    	'id',
     	'nombre',
     	'valor',
     ];
