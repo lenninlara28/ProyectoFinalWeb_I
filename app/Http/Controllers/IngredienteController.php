@@ -21,7 +21,8 @@ class IngredienteController extends Controller
     {
     	if ($request) {
     		$query = trim($request->get('searchText'));
-    		$ingredientes = DB::table('tabla_ingredientes')->where('nombre','LIKE','%'.$query.'%')->orderBy('id','desc');
+    		$ingredientes = DB::table('tabla_ingredientes')->where('nombre','LIKE','%'.$query.'%')->orderBy('idIngrediente','asc')->
+            paginate(7); 
     		return view('almacen.ingrediente.index',["ingredientes"=>$ingredientes,"searchText"=>$query]);
     	}
     }
@@ -36,32 +37,34 @@ class IngredienteController extends Controller
     	$ingrediente = new Ingrediente;
     	$ingrediente->nombre=$request->get('nombre');
     	$ingrediente->proveedor=$request->get('proveedor');
-    	$ngrediente->save();
-    	return Redirect::to('almacen/ingrediente');
+    	$ingrediente->save();
+    	return Redirect::to('almacen/Ingrediente');
 
     }
 
-    public function show($id)
+    public function show($idIngrediente)
     {
-    	return view("alamacen.show",["ingrediente"=>Ingrediente::findOrFail($id)]);
+    	return view("almacen.Ingrediente.show",["ingrediente"=>Ingrediente::findOrFail($idIngrediente)]);
     }
 
-    public function edit($id)
+    public function edit($idIngrediente)
     {
-    	return view("alamacen.edit",["ingrediente"=>Ingrediente::findOrFail($id)]);
+    	return view("almacen.Ingrediente.edit",["ingrediente"=>Ingrediente::findOrFail($idIngrediente)]);
     }
 
-    public function update(IngredienteFormRequest $request,$id)
+    public function update(IngredienteFormRequest $request,$idIngrediente)
     {
-    	$ingrediente=Ingrediente::findOrFail($id);
+    	$ingrediente=Ingrediente::findOrFail($idIngrediente);
     	$ingrediente->nombre=$request->get('nombre');
     	$ingrediente->nombre=$request->get('proveedor');
     	$ingrediente->update();
     	return Redirect::to('almacen/Ingrediente');
     }
 
-    public function destroy()
+    public function destroy($id)
     {
-    	
+    	$ingrediente=Ingrediente::findOrFail($id);
+        $ingrediente->delete();
+        return Redirect::to('almacen/Ingrediente');
     }
 }

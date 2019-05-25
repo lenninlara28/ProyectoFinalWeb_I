@@ -4,16 +4,17 @@ namespace proyectoFinalWeb;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Ingrediente extends Model
+class Plato extends Model
 {
-    protected $table = 'tabla_ingredientes';
+    protected $table = 'tabla_platos';
 
-    protected $primaryKey= 'idIngrediente';
+    protected $primaryKey= 'id';
 
     public $timestamps = false;
 
     protected $fillabel= [
+    	'id',
     	'nombre',
-    	'proveedor',
+    	'valor',
     ];
 }

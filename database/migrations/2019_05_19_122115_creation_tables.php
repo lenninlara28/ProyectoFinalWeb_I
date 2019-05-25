@@ -15,7 +15,7 @@ class CreationTables extends Migration
     {
         Schema::dropIfExists('tabla_ingredientes');
         Schema::create('tabla_ingredientes', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('idIngrediente');
             $table->char('nombre',50);
             $table->char('proveedor',50);
             $table->timestamps();
@@ -35,7 +35,7 @@ class CreationTables extends Migration
             $table->unsignedInteger('codPlato');
             $table->foreign('codPlato')->references('id')->on('tabla_platos');
             $table->unsignedInteger('codIngrediete');
-            $table->foreign('codIngrediete')->references('id')->on('tabla_ingredientes');
+            $table->foreign('codIngrediete')->references('idIngrediente')->on('tabla_ingredientes');
             $table->double('cantidad');
             $table->timestamps();
         });
@@ -71,10 +71,10 @@ class CreationTables extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tabla_ingrediente');
-        Schema::dropIfExists('tabla_plato');
-        Schema::dropIfExists('tabla_plato_ingrediente');
-        Schema::dropIfExists('tabla_orden');
-        Schema::dropIfExists('tabla_Orden_Plato');
+        Schema::dropIfExists('tabla_ingredientes');
+        Schema::dropIfExists('tabla_platos');
+        Schema::dropIfExists('tabla_platos_ingredientes');
+        Schema::dropIfExists('tabla_ordenes');
+        Schema::dropIfExists('tabla_ordenes_platos_Platos');
     }
 }

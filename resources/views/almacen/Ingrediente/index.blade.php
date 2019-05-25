@@ -3,9 +3,9 @@
 	
 	<div class = "row">
 		<div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
-			<h3>Ingredientes 
-				<a href="Ingrediente/create"><button>Agregar</button></a>
-			</h3>
+			<h2>Ingredientes 
+				<a href="Ingrediente/create"><button class="btn btn-success">+</button></a>
+			</h2>
 			@include('almacen.Ingrediente.search')
 		</div>
 	</div>
@@ -22,19 +22,23 @@
 					</thead>
 					@foreach($ingredientes as $ingre)
 					<tr>
-						<td>{{ $ingre->id}}</td>
+						<td>{{ $ingre->idIngrediente}}</td>
 						<td>{{ $ingre->nombre}}</td>
 						<td>{{ $ingre->proveedor}}</td>
 						<td>
-							<button class="btn btn-info">Editar</button>
+							<a href="{{URL::action('IngredienteController@edit', $ingre->idIngrediente)}}">
+								<button class="btn btn-info">Editar</button>
+							</a>
+							<a href="" data-target="#modal-delete-{{$ingre->idIngrediente}}" data-toggle="modal">
 							<button class="btn btn-danger">Eliminar</button>
+							</a>
 						</td>
 					</tr>
+					@include('almacen.Ingrediente.modal')
 					@endforeach
 				</table>
 			</div>
-			{{$ingredientes->render}}
+			{{$ingredientes->render()}}
 		</div>
 	</div>
-
 @endsection
