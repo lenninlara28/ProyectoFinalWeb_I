@@ -32,6 +32,9 @@
 							<a href="" data-target="#modal-delete-{{$pl->id}}" data-toggle="modal">
 							<button class="btn btn-danger">Eliminar</button>
 							</a>
+							<a href="{{URL::action('PlatosIngredientesController@edit',$pl->id)}}">
+								<button class="btn btn-success">Ver Ingredientes</button>
+							</a>
 						</td>
 					</tr>					
 					@include('almacen.Plato.modal')

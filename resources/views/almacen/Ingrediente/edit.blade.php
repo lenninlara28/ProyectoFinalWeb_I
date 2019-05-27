@@ -13,7 +13,7 @@
 		</div>
 		@endif
 
-		{!! Form::model($ingrediente,['method'=>'PATCH','route'=>['almacen.ingrediente.update',$ingrediente->idIngrediente]]) !!}
+		{!! Form::model($ingrediente,['method'=>'PATCH','route'=>['Ingrediente.update',$ingrediente->idIngrediente]]) !!}
 		{{Form::token()}}
 		<div class="form-group">
 			<input type="text" name="nombre" class="form-control" value="{{$ingrediente->nombre}}" placeholder="Nombre">

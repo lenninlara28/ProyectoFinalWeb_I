@@ -34,8 +34,8 @@ class CreationTables extends Migration
             $table->increments('id');
             $table->unsignedInteger('codPlato');
             $table->foreign('codPlato')->references('id')->on('tabla_platos');
-            $table->unsignedInteger('codIngrediete');
-            $table->foreign('codIngrediete')->references('idIngrediente')->on('tabla_ingredientes');
+            $table->unsignedInteger('codIngrediente');
+            $table->foreign('codIngrediente')->references('idIngrediente')->on('tabla_ingredientes');
             $table->double('cantidad');
             $table->timestamps();
         });

@@ -56,7 +56,7 @@ class IngredienteController extends Controller
     {
     	$ingrediente=Ingrediente::findOrFail($idIngrediente);
     	$ingrediente->nombre=$request->get('nombre');
-    	$ingrediente->nombre=$request->get('proveedor');
+    	$ingrediente->proveedor=$request->get('proveedor');
     	$ingrediente->update();
     	return Redirect::to('almacen/Ingrediente');
     }

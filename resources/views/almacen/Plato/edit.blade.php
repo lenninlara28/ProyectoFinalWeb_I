@@ -13,7 +13,7 @@
 		</div>
 		@endif
 
-		{!! Form::model($plato,['method'=>'PATCH','route'=>['almacen.Plato.update',$plato->id]]) !!}
+		{!! Form::model($plato,['method'=>'PATCH','route'=>['Plato.update',$plato->id]]) !!}
 		{{Form::token()}}
 		<div class="form-group">
 			<input type="text" name="nombre" class="form-control" value="{{$plato->nombre}}" placeholder="Nombre">

@@ -12,8 +12,14 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts/admin');
 });
 
 Route::resource('almacen/Ingrediente','IngredienteController');
 Route::resource('almacen/Plato','PlatoController');
+
+Route::resource('almacen/PlatosIngredientes','PlatosIngredientesController');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

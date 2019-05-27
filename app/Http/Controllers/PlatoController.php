@@ -56,7 +56,7 @@ class PlatoController extends Controller
     {
     	$plato=Plato::findOrFail($id);
     	$plato->nombre=$request->get('nombre');
-    	$plato->nombre=$request->get('valor');
+    	$plato->valor=$request->get('valor');
     	$plato->update();
     	return Redirect::to('almacen/Plato');
     }
